@@ -1,0 +1,21 @@
+# Dependencias
+node_modules/
+
+# Carpetas que NO son del landing
+Docs_Actualizados/
+Documentantion/
+IntroAnimation/
+ReadyForDrive/
+
+# Scripts de Python u otros scripts internos
+*.py
+record.js
+
+# Archivos del brandbook y assets de branding internos
+Branding/BrandBook1/
+Branding/CreativeConcept.png
+Branding/*.pdf
+
+# Package lock (opcional, solo subir lo esencial)
+package-lock.json
+package.json

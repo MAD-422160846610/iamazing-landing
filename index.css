@@ -1,0 +1,328 @@
+:root {
+  --bg-color: #8D939F; /* Raw Cement */
+  --bg-secondary: #5F6368; /* Ash Gray */
+  --text-main: #0A0A0A; /* Black */
+  --highlight: #1E90FF; /* Digital Blue */
+  --border-color: #0A0A0A;
+  
+  --font-hero: 'Syne', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  
+  --spacing: 2rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-radius: 0 !important; /* Absolute zero rounded corners */
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-mono);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Canvas Effect */
+#ascii-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none; /* Let clicks pass through to the content */
+  opacity: 0.07; /* Extremely subtle for minimalism */
+}
+
+/* System Overlay */
+.system-overlay {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: var(--spacing);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+}
+
+/* Grid Architecture */
+.grid-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+}
+
+.panel {
+  border: 1px solid var(--border-color);
+  background-color: transparent; /* Minimalist: let the background breathe */
+  padding: calc(var(--spacing) * 1.5);
+}
+
+/* SECTION 01 // HERO */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: -0.05em;
+  padding: 1rem var(--spacing);
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-box img {
+  display: block;
+}
+
+.system-status {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.blink {
+  color: var(--highlight);
+  animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+
+.hero-content {
+  padding: 4rem var(--spacing);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.hero-title {
+  font-family: var(--font-hero);
+  font-weight: 800; /* Massive/Aggressive */
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+  max-width: 1200px;
+}
+
+.cta-button {
+  background-color: var(--text-main);
+  color: var(--highlight);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  padding: 1rem 2rem;
+  display: inline-block;
+  border: 1px solid var(--text-main);
+  transition: all 0.2s ease;
+  font-size: 1.1rem;
+}
+
+.cta-button:hover {
+  background-color: var(--highlight);
+  color: var(--text-main);
+}
+
+/* SECTION 02 // WORK FILES */
+.section-title {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing);
+}
+
+.console-window {
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+}
+
+.window-header {
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--text-main);
+  color: var(--bg-color);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.window-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.window-controls span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--bg-color);
+}
+
+.window-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.demo-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--bg-color);
+  border: 1px dashed var(--border-color);
+}
+
+.window-status {
+  font-size: 0.8rem;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+/* SECTION 03 // PIPELINE */
+.pipeline-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pipeline-step {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.pipeline-step:last-child {
+  border-bottom: none;
+}
+
+.step-num {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.step-desc {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* SECTION 04 // FOOTER */
+.section-04 {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.left-footer, .right-footer {
+  flex: 1;
+}
+
+.right-footer {
+  border-left: none;
+}
+
+@media (min-width: 768px) {
+  .section-04 {
+    flex-direction: row;
+  }
+  .right-footer {
+    border-left: 1px solid var(--border-color);
+  }
+}
+
+.brand-marker {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.email-capture {
+  display: flex;
+  width: 100%;
+  border: 1px solid var(--border-color);
+}
+
+.email-capture input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-main);
+  outline: none;
+}
+
+.email-capture input::placeholder {
+  color: var(--text-main);
+  opacity: 0.6;
+}
+
+.submit-btn {
+  background-color: var(--text-main);
+  color: var(--bg-color);
+  border: none;
+  padding: 0 1.5rem;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: var(--highlight);
+  color: var(--text-main);
+}
+
+/* Accessibility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section-04 {
+    flex-direction: column;
+  }
+  .right-footer {
+    border-left: 1px solid var(--border-color);
+    border-top: none;
+  }
+  .header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
