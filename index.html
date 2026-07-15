@@ -13,6 +13,14 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
+  <!-- INTRO ANIMATION CONTAINER -->
+  <div id="iamazing-intro-container">
+    <video id="intro-source-video" autoplay muted playsinline style="display: none;">
+      <source src="IntroAnimation/Final/FinalIntroIAMCWebsite.mp4" type="video/mp4">
+    </video>
+    <canvas id="intro-ascii-canvas"></canvas>
+    <div class="intro-cyber-overlay"></div>
+  </div>
   
   <!-- BACKGROUND ASCII GRID EFFECT -->
   <canvas id="ascii-canvas"></canvas>
@@ -22,9 +30,11 @@
     <!-- SECTION 01 // HERO // SYSTEM_INIT -->
     <header class="section-01 grid-layout">
       <div class="header-top panel">
-        <div class="logo-box">
-          <img src="Branding/IAmazingISOTIPO.svg" alt="Isotipo" width="36" height="36" style="filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.2));">
-          <img src="Branding/IAmazingLOGOTIPO.svg" alt="IAmAZING CONTENT" height="24">
+        <div class="brand-iso">
+          <img src="Branding/IAmazingISOTIPO.svg" alt="Isotipo" width="52" height="52" style="filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.2));">
+        </div>
+        <div class="brand-logo">
+          <img src="Branding/IAmazingLOGOTIPO.svg" alt="IAmAZING CONTENT" height="48">
         </div>
         <div class="system-status">
           <span class="blink">STATUS: OPERATIONAL</span>
@@ -113,6 +123,7 @@
     
   </div>
 
+  <script src="intro.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
