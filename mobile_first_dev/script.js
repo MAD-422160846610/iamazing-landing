@@ -31,11 +31,23 @@ window.addEventListener('mousemove', (e) => {
   mouse.y = e.clientY;
 });
 
+window.addEventListener('touchstart', (e) => {
+  if (e.touches.length > 0) {
+    mouse.x = e.touches[0].clientX;
+    mouse.y = e.touches[0].clientY;
+  }
+});
+
 window.addEventListener('touchmove', (e) => {
   if (e.touches.length > 0) {
     mouse.x = e.touches[0].clientX;
     mouse.y = e.touches[0].clientY;
   }
+});
+
+window.addEventListener('touchend', () => {
+  mouse.x = -9999;
+  mouse.y = -9999;
 });
 
 let time = 0;
