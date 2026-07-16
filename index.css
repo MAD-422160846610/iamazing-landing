@@ -343,6 +343,9 @@ body, html {
   .system-status {
     justify-content: center;
   }
+  .hero-title {
+    font-size: clamp(1.4rem, 8vw, 2.5rem);
+  }
 }
 
 /* INTRO ANIMATION */
