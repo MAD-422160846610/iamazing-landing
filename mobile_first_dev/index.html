@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IAmAZING CONTENT // SYSTEM (Mobile-First)</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- INTRO ANIMATION CONTAINER -->
+  <div id="iamazing-intro-container">
+    <video id="intro-source-video" autoplay muted playsinline style="display: none;">
+      <source src="../IntroAnimation/Final/FinalIntroIAMCWebsite.mp4" type="video/mp4">
+    </video>
+    <canvas id="intro-ascii-canvas"></canvas>
+    <div class="intro-cyber-overlay"></div>
+  </div>
+  
+  <!-- BACKGROUND ASCII GRID EFFECT -->
+  <canvas id="ascii-canvas"></canvas>
+
+  <div class="system-overlay">
+    
+    <!-- SECTION 01 // HERO // SYSTEM_INIT -->
+    <header class="section-01 grid-layout">
+      <div class="header-top panel">
+        <div class="brand-iso">
+          <img src="../Branding/IAmazingISOTIPO.svg" alt="Isotipo" width="52" height="52" style="filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.2));">
+        </div>
+        <div class="brand-logo">
+          <img src="../Branding/IAmazingLOGOTIPO.svg" alt="IAmAZING CONTENT" height="48">
+        </div>
+        <div class="system-status">
+          <span class="blink">STATUS: OPERATIONAL</span>
+          <span class="timezone">LOG: CCS/VNZLA</span>
+        </div>
+      </div>
+      
+      <div class="hero-content panel">
+        <h1 class="hero-title">El contenido genérico no vende. Creamos campañas digitales de alto impacto con dirección creativa humana y optimización inteligente. Costo competitivo. Entregables claros.</h1>
+        <a href="#work" class="cta-button">[ ACCEDER_A_DEMOS ]</a>
+      </div>
+    </header>
+
+    <!-- SECTION 02 // WORK_FILES // PORTFOLIO_GRID -->
+    <section id="work" class="section-02 grid-layout">
+      <div class="panel title-panel">
+        <h2 class="section-title">SECTION_02 // WORK_FILES</h2>
+      </div>
+      
+      <div class="portfolio-grid">
+        <!-- DEMO 1 -->
+        <article class="console-window">
+          <div class="window-header">
+            <div class="window-title">FILE_001 // CONDO_SAAS</div>
+            <div class="window-controls">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="window-body">
+            <div class="demo-placeholder"></div>
+            <div class="window-status">[ STATUS: PROCESANDO_ARCHIVO // CARGANDO_DEMO... ]</div>
+          </div>
+        </article>
+
+        <!-- DEMO 2 -->
+        <article class="console-window">
+          <div class="window-header">
+            <div class="window-title">FILE_002 // CAFE_CCS</div>
+            <div class="window-controls">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="window-body">
+            <div class="demo-placeholder"></div>
+            <div class="window-status">[ STATUS: PROCESANDO_ARCHIVO // CARGANDO_DEMO... ]</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 03 // THE_WORKFLOW // CLIENT_PIPELINE -->
+    <section class="section-03 grid-layout">
+      <div class="panel title-panel">
+        <h2 class="section-title">SECTION_03 // THE_WORKFLOW</h2>
+      </div>
+      
+      <div class="pipeline-container panel">
+        <div class="pipeline-step">
+          <span class="step-num">01 / PRE-PAGO</span>
+          <span class="step-desc">// Seleccionas el volumen y tipo de campaña que necesitas.</span>
+        </div>
+        <div class="pipeline-step">
+          <span class="step-num">02 / PROCESAMIENTO</span>
+          <span class="step-desc">// Ejecutamos la dirección de arte, edición audiovisual y optimización con IA.</span>
+        </div>
+        <div class="pipeline-step">
+          <span class="step-num">03 / ENTREGA</span>
+          <span class="step-desc">// Descargas tus assets listos para pauta desde tu consola.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04 // FOOTER // SYSTEM_CLOSE -->
+    <footer class="section-04 grid-layout">
+      <div class="footer-panel panel left-footer">
+        <span class="brand-marker">iamazingcontent.space // ALL RIGHTS RESERVED.</span>
+      </div>
+      <div class="footer-panel panel right-footer">
+        <form class="email-capture" onsubmit="event.preventDefault();">
+          <label for="email-input" class="visually-hidden">Email</label>
+          <input type="email" id="email-input" placeholder="INPUT: ENTER_YOUR_EMAIL_" required>
+          <button type="submit" class="submit-btn">&gt;</button>
+        </form>
+      </div>
+    </footer>
+    
+  </div>
+
+  <script src="intro.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
