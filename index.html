@@ -1,129 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IAmAZING CONTENT // SYSTEM</title>
-  
-  <!-- Google Fonts -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>IAmAZING CONTENT // Ingeniería visual para creadores y marcas</title>
+  <meta name="description" content="Edición de video, motion graphics y pipeline con IA para canales de YouTube y marcas. Más de 1 M de suscriptores en los canales que operamos. Pide tu prueba gratis.">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="IAmAZING CONTENT // Contenido que detiene el scroll">
+  <meta property="og:description" content="Edición de video, motion graphics y pipeline con IA. Pide tu prueba gratis.">
+  <meta property="og:image" content="assets/brand/og-isotipo.png">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/logos/Isotipo-azul.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400..800&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/iamc.css">
 </head>
 <body>
-  <!-- INTRO ANIMATION CONTAINER -->
-  <div id="iamazing-intro-container">
-    <video id="intro-source-video" autoplay muted playsinline style="display: none;">
-      <source src="IntroAnimation/Final/FinalIntroIAMCWebsite.mp4" type="video/mp4">
-    </video>
-    <canvas id="intro-ascii-canvas"></canvas>
-    <div class="intro-cyber-overlay"></div>
+  <div id="intro" aria-hidden="true">
+    <video muted playsinline preload="auto"><source src="assets/video/intro.mp4" type="video/mp4"></video>
+    <canvas></canvas>
+    <button class="intro-skip" type="button">[ SALTAR_INTRO ]</button>
   </div>
-  
-  <!-- BACKGROUND ASCII GRID EFFECT -->
-  <canvas id="ascii-canvas"></canvas>
+  <canvas id="ascii-bg" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scanline" aria-hidden="true"></div>
 
-  <div class="system-overlay">
-    
-    <!-- SECTION 01 // HERO // SYSTEM_INIT -->
-    <header class="section-01 grid-layout">
-      <div class="header-top panel">
-        <div class="brand-iso">
-          <img src="Branding/IAmazingISOTIPO.svg" alt="Isotipo" width="52" height="52" style="filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.2));">
-        </div>
-        <div class="brand-logo">
-          <img src="Branding/IAmazingLOGOTIPO.svg" alt="IAmAZING CONTENT" height="48">
-        </div>
-        <div class="system-status">
-          <span class="blink">STATUS: OPERATIONAL</span>
-          <span class="timezone">LOG: CCS/VNZLA</span>
-        </div>
-      </div>
-      
-      <div class="hero-content panel">
-        <h1 class="hero-title">El contenido genérico no vende. Creamos campañas digitales de alto impacto con dirección creativa humana y optimización inteligente. Costo competitivo. Entregables claros.</h1>
-        <a href="#work" class="cta-button">[ ACCEDER_A_DEMOS ]</a>
+  <div class="page">
+    <header class="topbar">
+      <div class="wrap">
+        <a class="brand" href="./" aria-label="IAmAZING CONTENT, inicio">
+          <img class="iso" src="assets/brand/logos/Isotipo-azul.svg" alt="" width="36" height="36">
+          <span class="wordmark">IAmAZING <b>CONTENT</b></span>
+        </a>
+        <div class="status" aria-hidden="true"><span><span class="dot">■</span> SYSTEM_ONLINE</span><span>LOG: CCS/VNZLA</span></div>
+        <nav class="nav" aria-label="Principal">
+          <a href="portafolio/">[ PORTAFOLIO ]</a>
+          <a class="hide-sm" href="portafolio/#planes">[ PLANES ]</a>
+          <a class="nav-cta" href="#prueba">PRUEBA_GRATIS</a>
+        </nav>
       </div>
     </header>
 
-    <!-- SECTION 02 // WORK_FILES // PORTFOLIO_GRID -->
-    <section id="work" class="section-02 grid-layout">
-      <div class="panel title-panel">
-        <h2 class="section-title">SECTION_02 // WORK_FILES</h2>
-      </div>
-      
-      <div class="portfolio-grid">
-        <!-- DEMO 1 -->
-        <article class="console-window">
-          <div class="window-header">
-            <div class="window-title">FILE_001 // CONDO_SAAS</div>
-            <div class="window-controls">
-              <span></span><span></span><span></span>
+    <main>
+      <!-- SECTION_01 // HERO + CARRUSEL DE CLIENTES -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="wrap">
+          <span class="tag reveal">Estudio de ingeniería visual</span>
+          <h1 id="hero-title" class="h-display reveal">Contenido que <em>detiene</em> el scroll.</h1>
+          <p class="lead reveal">Editamos, animamos y automatizamos video para canales de YouTube y marcas. <strong>Dirección creativa humana</strong> sobre un pipeline con IA.</p>
+        </div>
+      </section>
+
+      <section aria-label="Canales que operamos">
+        <div class="wrap" style="margin-bottom:12px"><span class="mono-s">[ CLIENTES_ACTIVOS ] // +1 M de suscriptores en los canales que operamos</span></div>
+        <div class="marquee"><div class="marquee-track" id="client-track"></div></div>
+        <div class="wrap" style="padding-top:20px">
+          <div class="hero-actions">
+            <a class="btn btn-primary glitch" href="portafolio/">[ ACCEDER_AL_PORTAFOLIO ]
+              <img class="arr" src="assets/brand/icons/icon-arrow-deploy-white.svg" alt=""></a>
+            <a class="btn glitch" href="#prueba">[ PRUEBA_GRATIS ]</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION_02 // SPEECH DE VENTA -->
+      <section class="section" id="sistema" aria-labelledby="sistema-title">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="tag">Section_02 // El sistema</span>
+            <h2 id="sistema-title" class="sr-only">El sistema</h2>
+          </div>
+          <p class="manifesto reveal">El contenido genérico no vende. <span>Tu audiencia lo descarta en 3 segundos.</span> Nosotros diseñamos cada asset para que se quede.</p>
+
+          <div class="pillars">
+            <article class="pillar panel reveal">
+              <img src="assets/brand/icons/icon-video-render-blue.svg" alt="" width="44" height="38">
+              <h3 data-scramble>Edición_de_video</h3>
+              <p>Long-form, shorts y reels con ritmo de retención. Cortes, subtítulos dinámicos y diseño sonoro.</p>
+            </article>
+            <article class="pillar panel reveal">
+              <img src="assets/brand/icons/icon-automation-workflow-blue.svg" alt="" width="44" height="38">
+              <h3 data-scramble>Pipeline_con_IA</h3>
+              <p>Guion, voz y edición automatizados. Recibes volumen sin perder el control de calidad.</p>
+            </article>
+            <article class="pillar panel reveal">
+              <img src="assets/brand/icons/icon-metrics-speed-blue.svg" alt="" width="44" height="38">
+              <h3 data-scramble>Rendimiento</h3>
+              <p>Cada entrega se diseña para retención y CTR. Medimos el canal y ajustamos el sistema.</p>
+            </article>
+          </div>
+
+          <div class="pipeline">
+            <div class="step reveal"><b>01</b><div><h4>Brief</h4><p>Nos pasas el material y el objetivo del canal.</p></div></div>
+            <div class="step reveal"><b>02</b><div><h4>Render</h4><p>Edición, motion graphics y control de calidad en 72 h.</p></div></div>
+            <div class="step reveal"><b>03</b><div><h4>Deploy</h4><p>Recibes los assets listos para publicar.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION_03 // PRUEBA GRATIS (captura de leads) -->
+      <section class="section" id="prueba" aria-labelledby="prueba-title">
+        <div class="wrap">
+          <div class="trial panel reveal">
+            <div class="trial-head">
+              <span class="tag">Section_03 // Prueba gratis</span>
+              <h2 id="prueba-title" class="h2" data-scramble>Prueba el sistema sin pagar.</h2>
+              <p class="lead">Elige un servicio y te hacemos una pieza de prueba con tu propio material. Si te sirve, armamos tu plan.</p>
+              <p class="mono-s">[ 1 PIEZA ] // [ 0 USD ] // [ RESPUESTA EN 24 H ]</p>
             </div>
+            <form class="form" id="trial-form" novalidate>
+              <div class="row">
+                <div class="field"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" autocomplete="name" required placeholder="INPUT: NOMBRE_"></div>
+                <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required placeholder="INPUT: EMAIL_"></div>
+              </div>
+              <div class="row">
+                <div class="field"><label for="f-tel">WhatsApp / Telegram</label><input id="f-tel" name="telefono" type="tel" autocomplete="tel" placeholder="+58 ..."></div>
+                <div class="field"><label for="f-canal">Link de tu canal o marca</label><input id="f-canal" name="canal" type="url" inputmode="url" required placeholder="https://youtube.com/@..."></div>
+              </div>
+              <fieldset class="field" style="border:0">
+                <legend class="legend">Tipo de prueba</legend>
+                <div class="chips">
+                  <label><input type="checkbox" name="servicio" value="Short / Reel"><span>Short / Reel</span></label>
+                  <label><input type="checkbox" name="servicio" value="Video long-form"><span>Video long-form</span></label>
+                  <label><input type="checkbox" name="servicio" value="Motion graphics"><span>Motion graphics</span></label>
+                  <label><input type="checkbox" name="servicio" value="Miniatura"><span>Miniatura</span></label>
+                  <label><input type="checkbox" name="servicio" value="Pipeline con IA"><span>Pipeline con IA</span></label>
+                </div>
+              </fieldset>
+              <div class="field"><label for="f-msg">Qué necesitas (opcional)</label><textarea id="f-msg" name="mensaje" placeholder="Ej: tengo 2 h de podcast y quiero 5 shorts."></textarea></div>
+              <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <button class="btn btn-primary btn-block glitch" type="submit">[ SOLICITAR_PRUEBA ]</button>
+              <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+              <p class="form-note">Usamos tus datos solo para responder esta solicitud.</p>
+            </form>
           </div>
-          <div class="window-body">
-            <div class="demo-placeholder"></div>
-            <div class="window-status">[ STATUS: PROCESANDO_ARCHIVO // CARGANDO_DEMO... ]</div>
-          </div>
-        </article>
-
-        <!-- DEMO 2 -->
-        <article class="console-window">
-          <div class="window-header">
-            <div class="window-title">FILE_002 // CAFE_CCS</div>
-            <div class="window-controls">
-              <span></span><span></span><span></span>
-            </div>
-          </div>
-          <div class="window-body">
-            <div class="demo-placeholder"></div>
-            <div class="window-status">[ STATUS: PROCESANDO_ARCHIVO // CARGANDO_DEMO... ]</div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- SECTION 03 // THE_WORKFLOW // CLIENT_PIPELINE -->
-    <section class="section-03 grid-layout">
-      <div class="panel title-panel">
-        <h2 class="section-title">SECTION_03 // THE_WORKFLOW</h2>
-      </div>
-      
-      <div class="pipeline-container panel">
-        <div class="pipeline-step">
-          <span class="step-num">01 / PRE-PAGO</span>
-          <span class="step-desc">// Seleccionas el volumen y tipo de campaña que necesitas.</span>
         </div>
-        <div class="pipeline-step">
-          <span class="step-num">02 / PROCESAMIENTO</span>
-          <span class="step-desc">// Ejecutamos la dirección de arte, edición audiovisual y optimización con IA.</span>
-        </div>
-        <div class="pipeline-step">
-          <span class="step-num">03 / ENTREGA</span>
-          <span class="step-desc">// Descargas tus assets listos para pauta desde tu consola.</span>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- SECTION 04 // FOOTER // SYSTEM_CLOSE -->
-    <footer class="section-04 grid-layout">
-      <div class="footer-panel panel left-footer">
-        <span class="brand-marker">iamazingcontent.space // ALL RIGHTS RESERVED.</span>
-      </div>
-      <div class="footer-panel panel right-footer">
-        <form class="email-capture" onsubmit="event.preventDefault();">
-          <label for="email-input" class="visually-hidden">Email</label>
-          <input type="email" id="email-input" placeholder="INPUT: ENTER_YOUR_EMAIL_" required>
-          <button type="submit" class="submit-btn">&gt;</button>
-        </form>
+    <!-- SECTION_04 // FOOTER -->
+    <footer class="footer" id="contacto">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <img class="logo-big" src="assets/brand/logos/Logotipo-negativo.svg" alt="IAmAZING CONTENT" width="220">
+            <p class="mono-s" style="margin-top:14px">Software, contenido y pauta en un solo sistema.</p>
+          </div>
+          <div class="socials" id="socials"></div>
+        </div>
+        <div class="footer-bottom">
+          <span><span data-domain></span> // <span data-year></span> // ALL_RIGHTS_RESERVED</span>
+          <span>[ SYSTEM_CLOSE ]</span>
+        </div>
       </div>
     </footer>
-    
   </div>
 
-  <script src="intro.js"></script>
-  <script src="script.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>

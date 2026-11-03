@@ -7,10 +7,7 @@ videos/
 # Carpetas que NO son del landing
 Docs_Actualizados/
 Documentantion/
-IntroAnimation/*
-!IntroAnimation/Final/
-IntroAnimation/Final/*
-!IntroAnimation/Final/FinalIntroIAMCWebsite.mp4
+IntroAnimation/
 ReadyForDrive/
 
 # Scripts de Python u otros scripts internos

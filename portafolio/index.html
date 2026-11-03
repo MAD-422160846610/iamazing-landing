@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Portafolio // IAmAZING CONTENT</title>
+  <meta name="description" content="Reels, canales de YouTube que operamos y planes de producción de video de IAmAZING CONTENT.">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Portafolio // IAmAZING CONTENT">
+  <meta property="og:description" content="Canales de YouTube que operamos, reels y planes de producción.">
+  <meta property="og:image" content="../assets/brand/og-isotipo.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/brand/logos/Isotipo-azul.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/iamc.css">
+</head>
+<body>
+  <canvas id="ascii-bg" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scanline" aria-hidden="true"></div>
+
+  <div class="page">
+    <header class="topbar">
+      <div class="wrap">
+        <a class="brand" href="../" aria-label="IAmAZING CONTENT, inicio">
+          <img class="iso" src="../assets/brand/logos/Isotipo-azul.svg" alt="" width="36" height="36">
+          <span class="wordmark">IAmAZING <b>CONTENT</b></span>
+        </a>
+        <div class="status" aria-hidden="true"><span><span class="dot">■</span> PORTFOLIO_MOUNTED</span><span>LOG: CCS/VNZLA</span></div>
+        <nav class="nav" aria-label="Principal">
+          <a href="../">[ INICIO ]</a>
+          <a class="hide-sm" href="#planes">[ PLANES ]</a>
+          <a class="nav-cta" href="../#prueba">PRUEBA_GRATIS</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- SECTION_01 // CARRUSEL DE VIDEOS -->
+      <section class="hero" aria-labelledby="pf-title">
+        <div class="wrap">
+          <span class="tag reveal">Section_01 // Render_reel</span>
+          <h1 id="pf-title" class="h-display reveal">Trabajo en <em>producción.</em></h1>
+          <p class="lead reveal">Piezas reales del pipeline: edición, motion graphics y tipografía cinética. Desliza para ver el reel.</p>
+        </div>
+      </section>
+      <section class="reel" aria-label="Reels">
+        <div class="reel-track" id="reel-track" tabindex="0"></div>
+        <div class="reel-ctrl">
+          <button type="button" id="reel-prev" aria-label="Anterior">&lt;</button>
+          <button type="button" id="reel-next" aria-label="Siguiente">&gt;</button>
+        </div>
+      </section>
+
+      <!-- SECTION_02 // CANALES DE YOUTUBE -->
+      <section class="section" id="canales" aria-labelledby="canales-title">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="tag">Section_02 // Canales operados</span>
+            <h2 id="canales-title" class="h2" data-scramble>+1 M de suscriptores. 5 canales.</h2>
+            <p class="lead">Canales de YouTube que editamos y producimos. Cada ficha muestra hasta dónde llegaron. Entra y mira el trabajo publicado.</p>
+            <p class="mono-s">Datos públicos de YouTube, corte 26-oct-2026.</p>
+          </div>
+          <div class="cases" id="cases"></div>
+        </div>
+      </section>
+
+      <!-- SECTION_03 // CTA -->
+      <section class="section" aria-label="Prueba gratis">
+        <div class="wrap">
+          <div class="cta-band panel reveal">
+            <div>
+              <h2 class="h2">Tu canal es el siguiente.</h2>
+              <p style="margin-top:10px">Te hacemos una pieza de prueba con tu material. Sin costo.</p>
+            </div>
+            <a class="btn glitch" href="../#prueba">[ SOLICITAR_PRUEBA_GRATIS ]</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION_04 // PLANES -->
+      <section class="section" id="planes" aria-labelledby="planes-title">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="tag">Section_04 // Planes</span>
+            <h2 id="planes-title" class="h2" data-scramble>Horas de video terminado al mes.</h2>
+            <p class="lead">Tres paquetes y tres niveles de servicio. Elige el nivel y compara.</p>
+          </div>
+          <div class="tiers" id="tiers" role="group" aria-label="Nivel de servicio"></div>
+          <p class="tier-desc" id="tier-desc" aria-live="polite"></p>
+          <div class="plans" id="plans"></div>
+          <p class="mono-s" style="margin-top:16px">Precios en USD. Entregas en 72 h por tanda.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contacto">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <img class="logo-big" src="../assets/brand/logos/Logotipo-negativo.svg" alt="IAmAZING CONTENT" width="220">
+            <p class="mono-s" style="margin-top:14px">Software, contenido y pauta en un solo sistema.</p>
+          </div>
+          <div class="socials" id="socials"></div>
+        </div>
+        <div class="footer-bottom">
+          <span><span data-domain></span> // <span data-year></span> // ALL_RIGHTS_RESERVED</span>
+          <span>[ SYSTEM_CLOSE ]</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>
