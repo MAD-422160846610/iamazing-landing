@@ -1,6 +1,6 @@
 # IAmAZING CONTENT // website
 
-Sitio estático (HTML + CSS + JS, sin build), publicado con GitHub Pages desde `main`.
+Sitio estático (HTML + CSS + JS, sin build), publicado con GitHub Pages desde `master`.
 
 ```
 index.html              → home: carrusel de clientes, speech, prueba gratis, footer
@@ -20,5 +20,5 @@ Casi todo se cambia en `assets/js/config.js`. Lo marcado `[ PENDIENTE ]` lo comp
 
 ## Flujo de trabajo
 1. Rama nueva por cambio (`feat/...`, `fix/...`).
-2. Pull request → revisión del equipo → merge a `main`.
-3. GitHub Pages publica solo al entrar a `main`.
+2. Pull request → revisión del equipo → merge a `master`.
+3. GitHub Pages publica solo al entrar a `master`.
