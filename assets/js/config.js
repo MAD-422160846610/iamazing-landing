@@ -79,16 +79,16 @@ window.IAMC = {
   ],
 
   // Loop de fondo del hero (mp4 sin audio, < 4 MB). mobile = 9:16, desktop = 16:9.
-  heroVideo: { mobile: '', desktop: '' },
+  heroVideo: { mobile: 'hero-9x16.mp4', desktop: 'hero-16x9.mp4' },
 
   // Reels del carrusel del portafolio. Solo se muestran los que tienen archivo. poster = portada .png/.jpg. Copia los .mp4 (9:16, < 8 MB) a assets/video/ y pon el nombre aquí.
   reels: [
-    { file: '', title: 'Ingeniería visual', tag: 'R01' },
-    { file: '', title: 'Automatización', tag: 'R02' },
-    { file: '', title: 'Manifiesto', tag: 'R03' },
-    { file: '', title: 'Conversión', tag: 'R04' },
-    { file: '', title: 'Render', tag: 'R05' },
-    { file: 'intro.mp4', title: 'Intro IAMC', tag: 'SYS' }
+    { file: 'r01.mp4', poster: 'r01.jpg', title: 'Ingeniería visual', tag: 'R01' },
+    { file: 'r02.mp4', poster: 'r02.jpg', title: 'Automatización', tag: 'R02' },
+    { file: 'r03.mp4', poster: 'r03.jpg', title: 'Manifiesto', tag: 'R03' },
+    { file: 'r04.mp4', poster: 'r04.jpg', title: 'Conversión', tag: 'R04' },
+    { file: 'r05.mp4', poster: 'r05.jpg', title: 'Ingeniería visual II', tag: 'R05' },
+    { file: 'r06.mp4', poster: 'r06.jpg', title: 'Automatización II', tag: 'R06' }
   ],
 
   // Precios. Fuente: Trello M2 "SOP & Ofertas Aprobadas" (USD / mes).
