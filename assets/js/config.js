@@ -37,7 +37,10 @@ window.IAMC = {
       service: '', start: '', growth: '' }
   ],
 
-  // Reels del carrusel del portafolio. Copia los .mp4 (9:16, < 8 MB) a assets/video/ y pon el nombre aquí.
+  // Loop de fondo del hero (mp4 sin audio, < 4 MB). mobile = 9:16, desktop = 16:9.
+  heroVideo: { mobile: '', desktop: '' },
+
+  // Reels del carrusel del portafolio. Solo se muestran los que tienen archivo. poster = portada .png/.jpg. Copia los .mp4 (9:16, < 8 MB) a assets/video/ y pon el nombre aquí.
   reels: [
     { file: '', title: 'Ingeniería visual', tag: 'R01' },
     { file: '', title: 'Automatización', tag: 'R02' },

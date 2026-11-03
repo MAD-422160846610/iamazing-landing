@@ -17,7 +17,6 @@
     return String(n);
   };
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const PENDING = '<em class="pending">[ PENDIENTE ]</em>';
 
   /* ---------- 1. fondo ASCII (versión v1, optimizada para móvil) ---------- */
   function asciiBg() {
@@ -115,7 +114,7 @@
     const final = el.dataset.text || el.textContent; el.dataset.text = final;
     if (reduced) return;
     const glyphs = '!<>-_\\/[]{}=+*^?#01';
-    let f = 0; const total = 22;
+    let f = 0; const total = 12;
     const tick = () => {
       el.textContent = final.split('').map((ch, i) => {
         if (ch === ' ') return ' ';
@@ -167,11 +166,11 @@
   /* ---------- 7. reels (portafolio) ---------- */
   function reels() {
     const track = $('#reel-track'); if (!track || !C.reels) return;
-    track.innerHTML = C.reels.map((r, i) => `<figure class="reel-item">
-        <div class="reel-media">${r.file
-          ? `<video src="../assets/video/${esc(r.file)}" muted playsinline loop preload="metadata" aria-label="${esc(r.title)}"></video>`
-          : `<div class="ph">[ ${esc(r.tag)} // RENDER_PENDIENTE ]<br>Copia el .mp4 en assets/video/</div>`}</div>
-        <figcaption class="reel-cap"><b>${esc(r.title)}</b><span>${String(i + 1).padStart(2, '0')}/${String(C.reels.length).padStart(2, '0')}</span></figcaption>
+    const list = C.reels.filter((r) => r.file);
+    if (!list.length) { track.closest('.reel').hidden = true; return; }
+    track.innerHTML = list.map((r, i) => `<figure class="reel-item">
+        <div class="reel-media"><video src="../assets/video/${esc(r.file)}"${r.poster ? ` poster="../assets/video/${esc(r.poster)}"` : ''} muted playsinline loop preload="none" aria-label="${esc(r.title)}"></video></div>
+        <figcaption class="reel-cap"><b>${esc(r.title)}</b><span>${String(i + 1).padStart(2, '0')}/${String(list.length).padStart(2, '0')}</span></figcaption>
       </figure>`).join('');
     // reproducir solo el video visible: ahorra batería y datos
     const io = new IntersectionObserver((es) => es.forEach((e) => {
@@ -196,11 +195,7 @@
           <div class="stat"><b data-count="${c.videos}">${fmt(c.videos)}</b><span>Videos</span></div>
           <div class="stat"><b ${c.top ? `data-count="${c.top}"` : ''}>${fmt(c.top)}</b><span>Top video</span></div>
         </div>
-        <dl class="timeline">
-          <div><dt>Servicio</dt><dd>${c.service ? esc(c.service) : PENDING}</dd></div>
-          <div><dt>Inicio</dt><dd>${c.start ? esc(c.start) : PENDING}</dd></div>
-          <div><dt>Evolución</dt><dd>${c.growth ? esc(c.growth) : PENDING}</dd></div>
-        </dl>
+        ${[['Servicio', c.service], ['Inicio', c.start], ['Evolución', c.growth]].some((r) => r[1]) ? `<dl class="timeline">${[['Servicio', c.service], ['Inicio', c.start], ['Evolución', c.growth]].filter((r) => r[1]).map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : ''}
         <a class="btn glitch" href="${esc(c.url)}" target="_blank" rel="noopener">[ VER_CANAL ]
           <img class="arr" src="../assets/brand/icons/icon-arrow-deploy-white.svg" alt=""></a>
       </article>`).join('');
@@ -248,8 +243,10 @@
       ['telegram', 'Telegram', k.telegram && `https://t.me/${k.telegram}`],
       ['email', 'Email', k.email && `mailto:${k.email}`]
     ];
-    box.innerHTML = links.map(([id, label, href]) => `<a href="${esc(href || '#')}" ${href ? 'target="_blank" rel="noopener"' : 'aria-disabled="true" title="[ PENDIENTE ]"'}>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONS[id]}"/></svg>${label}${href ? '' : ' <span class="mono-s">// pendiente</span>'}</a>`).join('');
+    const ok = links.filter((l) => l[2]);
+    if (!ok.length) { box.hidden = true; }
+    box.innerHTML = ok.map(([id, label, href]) => `<a href="${esc(href)}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONS[id]}"/></svg>${label}</a>`).join('');
     $$('[data-domain]').forEach((el) => { el.textContent = C.domain || ''; });
     $$('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
   }
@@ -287,8 +284,17 @@
     });
   }
 
+  /* ---------- 12. loop de video en el hero ---------- */
+  function heroLoop() {
+    const hero = $('.hero'); const src = C.heroVideo; if (!hero || !src || reduced) return;
+    const base = location.pathname.includes('/portafolio') ? '../' : '';
+    const file = (innerWidth < 600 && src.mobile) ? src.mobile : src.desktop;
+    if (!file) return;
+    hero.insertAdjacentHTML('afterbegin', `<video class="hero-loop" src="${base}assets/video/${esc(file)}" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video><div class="hero-fade"></div>`);
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
-    clientMarquee(); reels(); cases(); pricing(); contact(); trialForm();
+    heroLoop(); clientMarquee(); reels(); cases(); pricing(); contact(); trialForm();
     asciiBg(); intro(); observe();
   });
 })();
