@@ -6,7 +6,7 @@ window.IAMC = {
 
   // Formulario de prueba de trabajo. Pega aquí el endpoint de Formspree (https://formspree.io/f/xxxx)
   // o del webhook que reciba los leads. Si queda vacío, el formulario abre WhatsApp con los datos.
-  formEndpoint: '',
+  formEndpoint: 'https://formsubmit.co/ajax/iamazingcontent.space@gmail.com', // FormSubmit (gratis): el 1.er envío manda un correo de activación a esta cuenta
 
   contact: {
     whatsapp: '584120457932',   // WhatsApp Business de IAmazing

@@ -268,6 +268,7 @@
       if (!form.checkValidity()) { form.reportValidity(); return; }
       const data = Object.fromEntries(new FormData(form));
       data.servicio = $$('input[name="servicio"]:checked', form).map((i) => i.value).join(', ');
+      data._subject = 'Nueva solicitud de prueba de trabajo · IAmAZING'; delete data.website;
       if (!data.servicio) { status.textContent = '[ ERROR ] Elige al menos un tipo de prueba.'; return; }
       const btn = $('button[type="submit"]', form); btn.disabled = true;
       status.textContent = '[ ENVIANDO_SOLICITUD... ]';
