@@ -3,7 +3,7 @@
 Sitio estático (HTML + CSS + JS, sin build), publicado con GitHub Pages desde `master`.
 
 ```
-index.html              → home: carrusel de clientes, speech, prueba gratis, footer
+index.html              → home: carrusel de clientes, speech, prueba de trabajo, footer
 portafolio/index.html   → reels, canales de YouTube, CTA, planes
 assets/css/iamc.css     → estilos (tokens del brandbook, mobile first)
 assets/js/config.js     → DATOS EDITABLES: contacto, clientes, reels, precios, formulario
