@@ -42,7 +42,7 @@ window.IAMC = {
   manager: { name: '', role: '' },
 
   // Showreel de la home (mp4 16:9 en assets/video/). Mientras no haya uno propio se usa el intro.
-  showreel: { file: 'intro.mp4', poster: '' },
+  showreel: { file: 'intro.mp4', poster: 'showreel-poster.jpg' },
 
   services: [
     { name: 'Edición long-form', desc: 'Videos largos con ritmo de retención, b-roll y diseño sonoro.', icon: 'video-render' },
