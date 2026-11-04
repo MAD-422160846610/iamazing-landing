@@ -9,11 +9,11 @@ window.IAMC = {
   formEndpoint: '',
 
   contact: {
-    whatsapp: '',              // [ PENDIENTE ] solo números con código de país, ej. '584141234567'
+    whatsapp: '584120457932',   // WhatsApp Business de IAmazing
     telegram: '',              // [ PENDIENTE ] usuario sin @, ej. 'iamazingcontent'
     email: 'iamazingcontent.space@gmail.com',
     instagram: 'https://www.instagram.com/iamazingcontent/',
-    facebook: '',              // [ PENDIENTE ] URL completa de la página
+    facebook: 'https://www.facebook.com/422033224316647',
     linkedin: ''               // [ PENDIENTE ] URL completa de la página de empresa
   },
 
