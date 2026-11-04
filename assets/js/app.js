@@ -86,8 +86,10 @@
       tctx = tmp.getContext('2d', { willReadFrequently: true });
       ctx.font = `700 ${Math.floor(CELL * 1.55)}px Inconsolata, monospace`; ctx.textBaseline = 'top';
     };
+    const pct = $('#intro-pct');
     const frame = () => {
       if (video.paused || video.ended) return;
+      if (pct && video.duration) pct.textContent = Math.min(100, Math.round((video.currentTime / video.duration) * 100));
       tctx.drawImage(video, 0, 0, cols, rows);
       const px = tctx.getImageData(0, 0, cols, rows).data;
       ctx.fillStyle = '#0A0A0A'; ctx.fillRect(0, 0, cv.width, cv.height);
@@ -284,6 +286,53 @@
     });
   }
 
+  /* ---------- 13. secciones de la home (servicios, casos, proceso, FAQ, showreel) ---------- */
+  function homeSections() {
+    const svc = $('#services');
+    if (svc && C.services) svc.innerHTML = C.services.map((s, i) => `<li class="svc reveal">
+        <span class="svc-n">${String(i + 1).padStart(2, '0')}</span>
+        <img src="assets/brand/icons/icon-${esc(s.icon)}-blue.svg" alt="" width="36" height="31">
+        <h3>${esc(s.name)}</h3><p>${esc(s.desc)}</p></li>`).join('');
+
+    const mc = $('#metric-cards');
+    if (mc && C.featured) mc.innerHTML = C.featured.map((f) => {
+      const c = (C.clients || []).find((x) => x.id === f.id); if (!c) return '';
+      const v = c[f.metric];
+      return `<a class="metric panel reveal" href="${esc(c.url)}" target="_blank" rel="noopener">
+          <span class="case-id">${esc(c.id)} // ${esc(c.niche)}</span>
+          <b data-count="${v}">${fmt(v)}</b>
+          <span class="m-label">${esc(f.label)}</span>
+          <span class="m-name">${esc(c.name)} <img class="arr" src="assets/brand/icons/icon-arrow-deploy-white.svg" alt=""></span></a>`;
+    }).join('');
+
+    const pr = $('#process');
+    if (pr && C.process) pr.innerHTML = C.process.map((p, i) => `<li class="proc reveal">
+        <span class="proc-n">[${String(i + 1).padStart(3, '0')}]</span>
+        <h3>${esc(p.name)}</h3><span class="proc-t">${esc(p.time)}</span><p>${esc(p.desc)}</p></li>`).join('');
+
+    const fq = $('#faq-list');
+    if (fq && C.faq) fq.innerHTML = C.faq.map((f, i) => `<details class="faq-item"${i === 0 ? ' open' : ''}>
+        <summary><span class="faq-n">${String(i + 1).padStart(2, '0')}</span>${esc(f.q)}<span class="faq-x" aria-hidden="true">+</span></summary>
+        <p>${esc(f.a)}</p></details>`).join('');
+
+    const m = $('#manager'), mg = C.manager || {};
+    if (m && mg.name) { m.hidden = false; m.innerHTML = `<span class="dot">■</span> Te responde <b>${esc(mg.name)}</b>${mg.role ? ` // ${esc(mg.role)}` : ''}`; }
+
+    const sv = $('#showreel-video'), sb = $('#showreel-play'), sr = C.showreel || {};
+    if (sv && sr.file) {
+      sv.src = `assets/video/${sr.file}`; if (sr.poster) sv.poster = `assets/video/${sr.poster}`;
+      sv.preload = 'metadata';
+      sb.addEventListener('click', () => {
+        if (sv.paused) { sv.muted = false; sv.controls = true; sv.play().catch(() => {}); sb.hidden = true; }
+      });
+      const io = new IntersectionObserver((es) => es.forEach((e) => {
+        if (!e.isIntersecting) { sv.pause(); return; }
+        if (!sv.controls && !reduced) sv.play().catch(() => {});
+      }), { threshold: .4 });
+      io.observe(sv);
+    } else if (sv) { sv.closest('.section').hidden = true; }
+  }
+
   /* ---------- 12. loop de video en el hero ---------- */
   function heroLoop() {
     const hero = $('.hero'); const src = C.heroVideo; if (!hero || !src || reduced) return;
@@ -294,7 +343,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    heroLoop(); clientMarquee(); reels(); cases(); pricing(); contact(); trialForm();
+    heroLoop(); homeSections(); clientMarquee(); reels(); cases(); pricing(); contact(); trialForm();
     asciiBg(); intro(); observe();
   });
 })();

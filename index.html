@@ -20,6 +20,7 @@
   <div id="intro" aria-hidden="true">
     <video muted playsinline preload="auto"><source src="assets/video/intro.mp4" type="video/mp4"></video>
     <canvas></canvas>
+    <div class="intro-load mono-s">LOADING: <b id="intro-pct">0</b>%</div>
     <button class="intro-skip" type="button">[ SALTAR_INTRO ]</button>
   </div>
   <canvas id="ascii-bg" aria-hidden="true"></canvas>
@@ -43,71 +44,88 @@
     </header>
 
     <main>
-      <!-- SECTION_01 // HERO + CARRUSEL DE CLIENTES -->
+      <!-- [01] HERO -->
       <section class="hero" aria-labelledby="hero-title">
         <div class="wrap">
-          <span class="tag reveal">Estudio de ingeniería visual</span>
+          <div class="hero-meta reveal"><span class="idx">[01]</span><span class="tag" data-scramble>Estudio de ingeniería visual</span></div>
           <h1 id="hero-title" class="h-display reveal">Contenido que <em>detiene</em> el scroll.</h1>
-          <p class="lead reveal">Editamos, animamos y automatizamos video para canales de YouTube y marcas. <strong>Dirección creativa humana</strong> sobre un pipeline con IA.</p>
+          <div class="hero-grid">
+            <p class="lead reveal">Editamos, animamos y automatizamos video para canales de YouTube y marcas. <strong>Dirección creativa humana</strong> sobre un pipeline con IA.</p>
+            <div class="hero-side reveal">
+              <div class="badge-proof"><b data-count="1021550">1 M</b><span>suscriptores en los canales que operamos</span></div>
+              <a class="btn btn-primary glitch" href="#prueba">[ PRUEBA_GRATIS ]</a>
+            </div>
+          </div>
+          <ul class="stack reveal" aria-label="Servicios">
+            <li>Edición</li><li>Shorts</li><li>Motion</li><li>Miniaturas</li><li>Guion IA</li><li>Voz IA</li><li>HyperFrames</li><li>ArtCraft</li>
+          </ul>
         </div>
+        <div class="giant" aria-hidden="true">IAmAZING</div>
       </section>
 
+      <!-- CARRUSEL DE CLIENTES -->
       <section aria-label="Canales que operamos">
-        <div class="wrap" style="margin-bottom:12px"><span class="mono-s">[ CLIENTES_ACTIVOS ] // +1 M de suscriptores en los canales que operamos</span></div>
         <div class="marquee"><div class="marquee-track" id="client-track"></div></div>
         <div class="wrap" style="padding-top:20px">
-          <div class="hero-actions">
-            <a class="btn btn-primary glitch" href="portafolio/">[ ACCEDER_AL_PORTAFOLIO ]
-              <img class="arr" src="assets/brand/icons/icon-arrow-deploy-white.svg" alt=""></a>
-            <a class="btn glitch" href="#prueba">[ PRUEBA_GRATIS ]</a>
+          <a class="btn glitch" href="portafolio/">[ ACCEDER_AL_PORTAFOLIO ]
+            <img class="arr" src="assets/brand/icons/icon-arrow-deploy-white.svg" alt=""></a>
+        </div>
+      </section>
+
+      <!-- [02] SHOWREEL -->
+      <section class="section" id="showreel" aria-labelledby="reel-title">
+        <div class="wrap">
+          <div class="section-head"><span class="idx">[02]</span><span class="tag">Showreel</span><h2 id="reel-title" class="sr-only">Showreel</h2></div>
+          <div class="showreel reveal" id="showreel-box">
+            <video id="showreel-video" muted loop playsinline preload="none"></video>
+            <button class="play" type="button" id="showreel-play" aria-label="Reproducir showreel"><span>▶</span> [ PLAY_REEL ]</button>
           </div>
         </div>
       </section>
 
-      <!-- SECTION_02 // SPEECH DE VENTA -->
+      <!-- [03] SERVICIOS + SPEECH -->
       <section class="section" id="sistema" aria-labelledby="sistema-title">
         <div class="wrap">
-          <div class="section-head">
-            <span class="tag">Section_02 // El sistema</span>
-            <h2 id="sistema-title" class="sr-only">El sistema</h2>
-          </div>
+          <div class="section-head"><span class="idx">[03]</span><span class="tag">El sistema</span><h2 id="sistema-title" class="sr-only">Servicios</h2></div>
           <p class="manifesto reveal">El contenido genérico no vende. <span>Tu audiencia lo descarta en 3 segundos.</span> Nosotros diseñamos cada asset para que se quede.</p>
-
-          <div class="pillars">
-            <article class="pillar panel reveal">
-              <img src="assets/brand/icons/icon-video-render-blue.svg" alt="" width="44" height="38">
-              <h3 data-scramble>Edición_de_video</h3>
-              <p>Long-form, shorts y reels con ritmo de retención. Cortes, subtítulos dinámicos y diseño sonoro.</p>
-            </article>
-            <article class="pillar panel reveal">
-              <img src="assets/brand/icons/icon-automation-workflow-blue.svg" alt="" width="44" height="38">
-              <h3 data-scramble>Pipeline_con_IA</h3>
-              <p>Guion, voz y edición automatizados. Recibes volumen sin perder el control de calidad.</p>
-            </article>
-            <article class="pillar panel reveal">
-              <img src="assets/brand/icons/icon-metrics-speed-blue.svg" alt="" width="44" height="38">
-              <h3 data-scramble>Rendimiento</h3>
-              <p>Cada entrega se diseña para retención y CTR. Medimos el canal y ajustamos el sistema.</p>
-            </article>
-          </div>
-
-          <div class="pipeline">
-            <div class="step reveal"><b>01</b><div><h4>Brief</h4><p>Nos pasas el material y el objetivo del canal.</p></div></div>
-            <div class="step reveal"><b>02</b><div><h4>Render</h4><p>Edición, motion graphics y control de calidad en 72 h.</p></div></div>
-            <div class="step reveal"><b>03</b><div><h4>Deploy</h4><p>Recibes los assets listos para publicar.</p></div></div>
-          </div>
+          <ol class="services" id="services"></ol>
         </div>
       </section>
 
-      <!-- SECTION_03 // PRUEBA GRATIS (captura de leads) -->
+      <!-- [04] CASOS CON MÉTRICA -->
+      <section class="section" id="casos" aria-labelledby="casos-title">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="idx">[04]</span><span class="tag">Casos</span>
+            <h2 id="casos-title" class="h2">Resultados que se pueden auditar.</h2>
+            <p class="lead">Canales reales, números públicos de YouTube. Entra y revisa el trabajo.</p>
+          </div>
+          <div class="metric-cards" id="metric-cards"></div>
+          <a class="btn glitch" href="portafolio/#canales" style="margin-top:20px">[ VER_LOS_5_CASOS ]</a>
+        </div>
+      </section>
+
+      <!-- [05] PROCESO -->
+      <section class="section section-blue" id="proceso" aria-labelledby="proceso-title">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="idx">[05]</span><span class="tag">Proceso</span>
+            <h2 id="proceso-title" class="h2">De brief a deploy.</h2>
+          </div>
+          <ol class="process" id="process"></ol>
+        </div>
+      </section>
+
+      <!-- [06] PRUEBA GRATIS -->
       <section class="section" id="prueba" aria-labelledby="prueba-title">
         <div class="wrap">
           <div class="trial panel reveal">
             <div class="trial-head">
-              <span class="tag">Section_03 // Prueba gratis</span>
+              <div><span class="idx">[06]</span><span class="tag">Prueba gratis</span></div>
               <h2 id="prueba-title" class="h2">Prueba el sistema sin pagar.</h2>
               <p class="lead">Elige un servicio y te hacemos una pieza de prueba con tu propio material. Si te sirve, armamos tu plan.</p>
               <p class="mono-s">[ 1 PIEZA ] // [ 0 USD ] // [ RESPUESTA EN 24 H ]</p>
+              <div class="manager" id="manager" hidden></div>
             </div>
             <form class="form" id="trial-form" novalidate>
               <div class="row">
@@ -137,9 +155,20 @@
           </div>
         </div>
       </section>
+
+      <!-- [07] FAQ -->
+      <section class="section" id="faq" aria-labelledby="faq-title">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="idx">[07]</span><span class="tag">FAQ</span>
+            <h2 id="faq-title" class="h2">Preguntas antes de empezar.</h2>
+          </div>
+          <div class="faq" id="faq-list"></div>
+        </div>
+      </section>
     </main>
 
-    <!-- SECTION_04 // FOOTER -->
+    <!-- [08] FOOTER -->
     <footer class="footer" id="contacto">
       <div class="wrap">
         <div class="footer-grid">

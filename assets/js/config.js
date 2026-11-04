@@ -37,6 +37,47 @@ window.IAMC = {
       service: '', start: '', growth: '' }
   ],
 
+
+  // Persona que responde las solicitudes (aparece junto al formulario). [ PENDIENTE ] nombre y rol.
+  manager: { name: '', role: '' },
+
+  // Showreel de la home (mp4 16:9 en assets/video/). Mientras no haya uno propio se usa el intro.
+  showreel: { file: 'intro.mp4', poster: '' },
+
+  services: [
+    { name: 'Edición long-form', desc: 'Videos largos con ritmo de retención, b-roll y diseño sonoro.', icon: 'video-render' },
+    { name: 'Shorts y reels', desc: 'Cortes verticales con hook en los primeros 2 segundos y subtítulos dinámicos.', icon: 'arrow-deploy' },
+    { name: 'Motion graphics', desc: 'Tipografía cinética, explicativos y placas con HyperFrames y ArtCraft.', icon: 'code-architecture' },
+    { name: 'Miniaturas', desc: 'Diseño pensado para CTR y coherente con la identidad del canal.', icon: 'copy-command' },
+    { name: 'Pipeline con IA', desc: 'Guion, voz sintética y edición automatizada para producir en volumen.', icon: 'automation-workflow' },
+    { name: 'Rendimiento', desc: 'Lectura de retención y CTR del canal para ajustar cada tanda.', icon: 'metrics-speed' }
+  ],
+
+  // Casos destacados de la home: id del cliente + métrica a destacar.
+  featured: [
+    { id: 'C01', metric: 'top', label: 'vistas en el top video' },
+    { id: 'C05', metric: 'top', label: 'vistas en un canal de 8,7 K subs' },
+    { id: 'C02', metric: 'subs', label: 'suscriptores, 30 videos al mes' }
+  ],
+
+  process: [
+    { name: 'Brief', time: '24 h', desc: 'Nos pasas material, canal y objetivo. Respondemos con un plan de prueba.' },
+    { name: 'Prueba gratis', time: '72 h', desc: 'Entregamos una pieza real con tu material. Sin costo.' },
+    { name: 'Plan', time: '1 día', desc: 'Eliges paquete y nivel. Fijamos calendario de tandas.' },
+    { name: 'Producción', time: '72 h por tanda', desc: 'Edición, motion y control de calidad. 2 rondas de ajustes.' },
+    { name: 'Optimización', time: 'Mensual', desc: 'Revisamos métricas del canal y ajustamos el sistema.' }
+  ],
+
+  faq: [
+    { q: '¿Cuánto cuesta?', a: 'Los planes van desde 120 USD al mes por 5 horas de video terminado. Los detalles están en la sección de planes del portafolio.' },
+    { q: '¿Cuánto tardan en entregar?', a: '72 horas por tanda de material, desde que recibimos los archivos completos.' },
+    { q: '¿Qué incluye la prueba gratis?', a: 'Una pieza real (short, fragmento long-form, miniatura o motion) hecha con tu propio material. Sin costo y sin compromiso.' },
+    { q: '¿Cuántas revisiones incluye?', a: 'Dos rondas de ajustes en los niveles Augmentado y Profesional.' },
+    { q: '¿Trabajan con canales faceless?', a: 'Sí. Operamos canales de historia, ciencia y noticias con pipeline de guion y voz con IA.' },
+    { q: '¿Qué pasa con las horas que no uso?', a: 'En el plan Creator se acumulan hasta por 3 meses.' },
+    { q: '¿Cómo empiezo?', a: 'Llena el formulario de prueba gratis o escríbenos por WhatsApp o Telegram.' }
+  ],
+
   // Loop de fondo del hero (mp4 sin audio, < 4 MB). mobile = 9:16, desktop = 16:9.
   heroVideo: { mobile: '', desktop: '' },
 
