@@ -248,12 +248,12 @@
     const ok = links.filter((l) => l[2]);
     if (!ok.length) { box.hidden = true; }
     box.innerHTML = ok.map(([id, label, href]) => `<a href="${esc(href)}" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONS[id]}"/></svg>${label}</a>`).join('');
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="${ICONS[id]}"/></svg>${label}</a>`).join('');
     $$('[data-domain]').forEach((el) => { el.textContent = C.domain || ''; });
     $$('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
   }
 
-  /* ---------- 11. formulario de prueba gratis ---------- */
+  /* ---------- 11. formulario de prueba de trabajo ---------- */
   function trialForm() {
     const form = $('#trial-form'); if (!form) return;
     const status = $('#form-status');
@@ -268,6 +268,7 @@
       if (!form.checkValidity()) { form.reportValidity(); return; }
       const data = Object.fromEntries(new FormData(form));
       data.servicio = $$('input[name="servicio"]:checked', form).map((i) => i.value).join(', ');
+      data._subject = 'Nueva solicitud de prueba de trabajo · IAmAZING'; delete data.website;
       if (!data.servicio) { status.textContent = '[ ERROR ] Elige al menos un tipo de prueba.'; return; }
       const btn = $('button[type="submit"]', form); btn.disabled = true;
       status.textContent = '[ ENVIANDO_SOLICITUD... ]';
@@ -278,7 +279,7 @@
           status.textContent = '[ OK ] Solicitud recibida. Te escribimos en menos de 24 h.';
           form.reset();
         } else if (C.contact?.whatsapp) {
-          const msg = `Hola IAmAZING, quiero mi prueba gratis.\nNombre: ${data.nombre}\nEmail: ${data.email}\nCanal/marca: ${data.canal}\nPrueba: ${data.servicio}\nDetalle: ${data.mensaje || '-'}`;
+          const msg = `Hola IAmAZING, quiero mi prueba de trabajo.\nNombre: ${data.nombre}\nEmail: ${data.email}\nCanal/marca: ${data.canal}\nPrueba: ${data.servicio}\nDetalle: ${data.mensaje || '-'}`;
           window.open(`https://wa.me/${C.contact.whatsapp}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
           status.textContent = '[ OK ] Te llevamos a WhatsApp para confirmar la solicitud.';
         } else {

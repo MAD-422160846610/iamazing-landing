@@ -90,7 +90,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   font-family: var(--f-display); font-weight: 800; color: var(--blanco); text-transform: uppercase;
   line-height: 1; letter-spacing: -.015em; font-size: clamp(1.5rem, 6vw, 3.4rem);
 }
-.lead { font-size: 17px; color: var(--cemento); max-width: 60ch; }
+.lead { font-size: 18px; line-height: 1.55; color: #B4B9C2; max-width: 60ch; }
 .lead strong { color: var(--blanco); font-weight: 700; }
 .mono-s { font-size: 13px; letter-spacing: .04em; color: var(--ceniza); }
 
@@ -148,7 +148,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .pillar img { width: 44px; height: 38px; object-fit: contain; object-position: left; }
 .pillar h3 { font-family: var(--f-display); color: var(--blanco); font-size: 20px; text-transform: uppercase; line-height: 1.1; }
 .pillar p { font-size: 15px; }
-.manifesto { font-family: var(--f-display); font-weight: 700; color: var(--blanco); font-size: clamp(1.4rem, 5.6vw, 2.6rem); line-height: 1.12; text-transform: uppercase; margin-bottom: 36px; }
+.manifesto { font-family: var(--f-display); font-weight: 700; color: var(--blanco); font-size: clamp(1.4rem, 5.6vw, 2.6rem); line-height: 1.12; text-transform: uppercase; margin-bottom: 14px; }
+.manifesto-lead { margin-bottom: 36px; }
 .manifesto span { color: var(--ceniza); }
 .pipeline { margin-top: 36px; display: grid; }
 .step { display: grid; grid-template-columns: 56px 1fr; gap: 14px; padding: 20px 0; border-top: 1px solid var(--line); }

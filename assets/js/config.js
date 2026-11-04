@@ -4,16 +4,16 @@
 window.IAMC = {
   domain: 'iamazingcontent.website', // [ PENDIENTE ] confirmar dominio definitivo
 
-  // Formulario de prueba gratis. Pega aquí el endpoint de Formspree (https://formspree.io/f/xxxx)
+  // Formulario de prueba de trabajo. Pega aquí el endpoint de Formspree (https://formspree.io/f/xxxx)
   // o del webhook que reciba los leads. Si queda vacío, el formulario abre WhatsApp con los datos.
-  formEndpoint: '',
+  formEndpoint: 'https://formsubmit.co/ajax/iamazingcontent.space@gmail.com', // FormSubmit (gratis): el 1.er envío manda un correo de activación a esta cuenta
 
   contact: {
-    whatsapp: '',              // [ PENDIENTE ] solo números con código de país, ej. '584141234567'
+    whatsapp: '584120457932',   // WhatsApp Business de IAmazing
     telegram: '',              // [ PENDIENTE ] usuario sin @, ej. 'iamazingcontent'
-    email: '',                 // [ PENDIENTE ] ej. 'hola@iamazingcontent.website'
-    instagram: '',             // [ PENDIENTE ] URL completa del perfil
-    facebook: '',              // [ PENDIENTE ] URL completa de la página
+    email: 'iamazingcontent.space@gmail.com',
+    instagram: 'https://www.instagram.com/iamazingcontent/',
+    facebook: 'https://www.facebook.com/422033224316647',
     linkedin: ''               // [ PENDIENTE ] URL completa de la página de empresa
   },
 
@@ -42,7 +42,7 @@ window.IAMC = {
   manager: { name: '', role: '' },
 
   // Showreel de la home (mp4 16:9 en assets/video/). Mientras no haya uno propio se usa el intro.
-  showreel: { file: 'intro.mp4', poster: '' },
+  showreel: { file: 'intro.mp4', poster: 'showreel-poster.jpg' },
 
   services: [
     { name: 'Edición long-form', desc: 'Videos largos con ritmo de retención, b-roll y diseño sonoro.', icon: 'video-render' },
@@ -62,7 +62,7 @@ window.IAMC = {
 
   process: [
     { name: 'Brief', time: '24 h', desc: 'Nos pasas material, canal y objetivo. Respondemos con un plan de prueba.' },
-    { name: 'Prueba gratis', time: '72 h', desc: 'Entregamos una pieza real con tu material. Sin costo.' },
+    { name: 'Prueba de trabajo', time: '72 h', desc: 'Entregamos una pieza real con tu material al 50 % de su precio.' },
     { name: 'Plan', time: '1 día', desc: 'Eliges paquete y nivel. Fijamos calendario de tandas.' },
     { name: 'Producción', time: '72 h por tanda', desc: 'Edición, motion y control de calidad. 2 rondas de ajustes.' },
     { name: 'Optimización', time: 'Mensual', desc: 'Revisamos métricas del canal y ajustamos el sistema.' }
@@ -71,11 +71,11 @@ window.IAMC = {
   faq: [
     { q: '¿Cuánto cuesta?', a: 'Los planes van desde 120 USD al mes por 5 horas de video terminado. Los detalles están en la sección de planes del portafolio.' },
     { q: '¿Cuánto tardan en entregar?', a: '72 horas por tanda de material, desde que recibimos los archivos completos.' },
-    { q: '¿Qué incluye la prueba gratis?', a: 'Una pieza real (short, fragmento long-form, miniatura o motion) hecha con tu propio material. Sin costo y sin compromiso.' },
+    { q: '¿Qué incluye la prueba de trabajo?', a: 'Una pieza real (short, fragmento long-form, miniatura o motion) hecha con tu propio material, al 50 % de su precio normal. Puede llevar marca de agua. Si el pedido es muy complejo, te mostramos una referencia o una muestra corta.' },
     { q: '¿Cuántas revisiones incluye?', a: 'Dos rondas de ajustes en los niveles Augmentado y Profesional.' },
     { q: '¿Trabajan con canales faceless?', a: 'Sí. Operamos canales de historia, ciencia y noticias con pipeline de guion y voz con IA.' },
     { q: '¿Qué pasa con las horas que no uso?', a: 'En el plan Creator se acumulan hasta por 3 meses.' },
-    { q: '¿Cómo empiezo?', a: 'Llena el formulario de prueba gratis o escríbenos por WhatsApp o Telegram.' }
+    { q: '¿Cómo empiezo?', a: 'Llena el formulario de prueba de trabajo o escríbenos por Instagram o por correo.' }
   ],
 
   // Loop de fondo del hero (mp4 sin audio, < 4 MB). mobile = 9:16, desktop = 16:9.
