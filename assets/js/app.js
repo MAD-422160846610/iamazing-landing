@@ -257,6 +257,11 @@
   function trialForm() {
     const form = $('#trial-form'); if (!form) return;
     const status = $('#form-status');
+    // Sin destino configurado no aceptamos envíos: ningún lead se pierde en silencio.
+    if (!C.formEndpoint && !C.contact?.whatsapp) {
+      $('button[type="submit"]', form).disabled = true;
+      status.textContent = '[ FORMULARIO_EN_CONFIGURACIÓN ] Disponible en las próximas horas.';
+    }
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (form.website.value) return; // honeypot anti-spam
@@ -277,8 +282,7 @@
           window.open(`https://wa.me/${C.contact.whatsapp}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
           status.textContent = '[ OK ] Te llevamos a WhatsApp para confirmar la solicitud.';
         } else {
-          console.info('[IAMC] Lead (sin endpoint configurado):', data);
-          status.textContent = '[ MODO_PRUEBA ] Formulario sin conectar todavía. Revisa la consola: el lead se capturó bien.';
+          status.textContent = '[ FORMULARIO_EN_CONFIGURACIÓN ] Disponible en las próximas horas.';
         }
       } catch (err) {
         status.textContent = '[ ERROR ] No se pudo enviar. Escríbenos por WhatsApp o Telegram.';
