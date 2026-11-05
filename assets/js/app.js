@@ -272,21 +272,33 @@
       if (!data.servicio) { status.textContent = '[ ERROR ] Elige al menos un tipo de prueba.'; return; }
       const btn = $('button[type="submit"]', form); btn.disabled = true;
       status.textContent = '[ ENVIANDO_SOLICITUD... ]';
+      const msg = `Hola IAmAZING, quiero mi prueba de trabajo.\nNombre: ${data.nombre}\nEmail: ${data.email}\nCanal/marca: ${data.canal}\nPrueba: ${data.servicio}\nDetalle: ${data.mensaje || '-'}`;
+      const waUrl = C.contact?.whatsapp ? `https://wa.me/${C.contact.whatsapp}?text=${encodeURIComponent(msg)}` : '';
+      // Si el envío falla, el lead no se pierde: ofrecemos WhatsApp con los datos ya escritos.
+      const fallback = (why) => {
+        if (waUrl) {
+          status.innerHTML = `[ ${why} ] <a href="${waUrl}" target="_blank" rel="noopener">Envíala por WhatsApp con un clic &rarr;</a>`;
+        } else {
+          status.textContent = `[ ${why} ] Escríbenos a ${C.contact?.email || 'nuestro correo'}.`;
+        }
+      };
       try {
         if (C.formEndpoint) {
           const res = await fetch(C.formEndpoint, { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-          if (!res.ok) throw new Error(res.status);
+          const json = await res.json().catch(() => ({}));
+          // FormSubmit responde success "false" (con HTTP 200) mientras el formulario no está activado.
+          if (!res.ok || String(json.success) === 'false') throw new Error(json.message || res.status);
           status.textContent = '[ OK ] Solicitud recibida. Te escribimos en menos de 24 h.';
           form.reset();
-        } else if (C.contact?.whatsapp) {
-          const msg = `Hola IAmAZING, quiero mi prueba de trabajo.\nNombre: ${data.nombre}\nEmail: ${data.email}\nCanal/marca: ${data.canal}\nPrueba: ${data.servicio}\nDetalle: ${data.mensaje || '-'}`;
-          window.open(`https://wa.me/${C.contact.whatsapp}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+        } else if (waUrl) {
+          window.open(waUrl, '_blank', 'noopener');
           status.textContent = '[ OK ] Te llevamos a WhatsApp para confirmar la solicitud.';
         } else {
           status.textContent = '[ FORMULARIO_EN_CONFIGURACIÓN ] Disponible en las próximas horas.';
         }
       } catch (err) {
-        status.textContent = '[ ERROR ] No se pudo enviar. Escríbenos por WhatsApp o Telegram.';
+        console.warn('Formulario:', err);
+        fallback('NO_SE_PUDO_ENVIAR');
       } finally { btn.disabled = false; }
     });
   }
