@@ -22,7 +22,7 @@ window.IAMC = {
   clients: [
     { id: 'C01', name: 'Rigoberto Hidalgo', handle: '@RigobertoHidalgo-', url: 'https://www.youtube.com/@RigobertoHidalgo-',
       niche: 'Debate / Opinión', subs: 577000, videos: 212, top: 4500000,
-      service: '', start: '', growth: '' },
+      service: 'Edición long-form y motion graphics de sus prédicas', start: '', growth: '' },
     { id: 'C02', name: 'Der Kommandant', handle: '@derkommandantesp', url: 'https://www.youtube.com/@derkommandantesp',
       niche: 'Historia militar', subs: 258000, videos: 393, top: 177000,
       service: '', start: '', growth: '' },
@@ -73,7 +73,7 @@ window.IAMC = {
     { q: '¿Cuánto tardan en entregar?', a: '72 horas por tanda de material, desde que recibimos los archivos completos.' },
     { q: '¿Qué incluye la prueba de trabajo?', a: 'Una pieza real (short, fragmento long-form, miniatura o motion) hecha con tu propio material, al 50 % de su precio normal. Puede llevar marca de agua. Si el pedido es muy complejo, te mostramos una referencia o una muestra corta.' },
     { q: '¿Cuántas revisiones incluye?', a: 'Dos rondas de ajustes en los niveles Augmentado y Profesional.' },
-    { q: '¿Trabajan con canales faceless?', a: 'Sí. Operamos canales de historia, ciencia y noticias con pipeline de guion y voz con IA.' },
+    { q: '¿Trabajan con canales faceless?', a: 'Sí. Producimos para canales de historia, ciencia y noticias con pipeline de guion y voz con IA.' },
     { q: '¿Qué pasa con las horas que no uso?', a: 'En el plan Creator se acumulan hasta por 3 meses.' },
     { q: '¿Cómo empiezo?', a: 'Llena el formulario de prueba de trabajo o escríbenos por Instagram o por correo.' }
   ],
