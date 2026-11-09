@@ -258,7 +258,7 @@
     const form = $('#trial-form'); if (!form) return;
     const status = $('#form-status');
     // Sin destino configurado no aceptamos envíos: ningún lead se pierde en silencio.
-    if (!C.formEndpoint && !C.contact?.whatsapp) {
+    if (!C.googleForm && !C.formEndpoint && !C.contact?.whatsapp) {
       $('button[type="submit"]', form).disabled = true;
       status.textContent = '[ FORMULARIO_EN_CONFIGURACIÓN ] Disponible en las próximas horas.';
     }
@@ -272,7 +272,7 @@
       if (!data.servicio) { status.textContent = '[ ERROR ] Elige al menos un tipo de prueba.'; return; }
       const btn = $('button[type="submit"]', form); btn.disabled = true;
       status.textContent = '[ ENVIANDO_SOLICITUD... ]';
-      const msg = `Hola IAmAZING, quiero mi prueba de trabajo.\nNombre: ${data.nombre}\nEmail: ${data.email}\nCanal/marca: ${data.canal}\nPrueba: ${data.servicio}\nDetalle: ${data.mensaje || '-'}`;
+      const msg = `Hola IAmAZING, quiero mi prueba de trabajo.\nNombre: ${data.nombre}\nEmail: ${data.email}\nWhatsApp/Telegram: ${data.telefono || '-'}\nCanal/marca: ${data.canal}\nPrueba: ${data.servicio}\nDetalle: ${data.mensaje || '-'}`;
       const waUrl = C.contact?.whatsapp ? `https://wa.me/${C.contact.whatsapp}?text=${encodeURIComponent(msg)}` : '';
       // Si el envío falla, el lead no se pierde: ofrecemos WhatsApp con los datos ya escritos.
       const fallback = (why) => {
@@ -283,7 +283,12 @@
         }
       };
       try {
-        if (C.formEndpoint) {
+        if (C.googleForm) {
+          // Google Forms no devuelve CORS: el envío es opaco (no-cors). Si la red falla, fetch lanza error y cae al respaldo.
+          await fetch(C.googleForm.action, { method: 'POST', mode: 'no-cors', body: new URLSearchParams({ [C.googleForm.entry]: msg }) });
+          status.textContent = '[ OK ] Solicitud recibida. Te escribimos en menos de 24 h.';
+          form.reset();
+        } else if (C.formEndpoint) {
           const res = await fetch(C.formEndpoint, { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
           const json = await res.json().catch(() => ({}));
           // FormSubmit responde success "false" (con HTTP 200) mientras el formulario no está activado.

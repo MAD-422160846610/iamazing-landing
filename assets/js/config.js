@@ -6,7 +6,14 @@ window.IAMC = {
 
   // Formulario de prueba de trabajo. Pega aquí el endpoint de Formspree (https://formspree.io/f/xxxx)
   // o del webhook que reciba los leads. Si queda vacío, el formulario abre WhatsApp con los datos.
-  formEndpoint: 'https://formsubmit.co/ajax/iamazingcontent.space@gmail.com', // FormSubmit (gratis): el 1.er envío manda un correo de activación a esta cuenta
+  formEndpoint: '', // FormSubmit quedó fuera: algunos proveedores de internet en Venezuela bloquean formsubmit.co
+
+  // Formulario de Google de la cuenta iamazingcontent.space (las respuestas avisan por correo).
+  // Google no está bloqueado en Venezuela. Si se cambia el formulario, actualizar action y entry.
+  googleForm: {
+    action: 'https://docs.google.com/forms/d/e/1FAIpQLSf6digBynZkaAIZfzdjyVkR9NGcBQmdgry5IrtkFMSlx9mLpA/formResponse',
+    entry: 'entry.984815173'
+  },
 
   contact: {
     whatsapp: '584120457932',   // WhatsApp Business de IAmazing
